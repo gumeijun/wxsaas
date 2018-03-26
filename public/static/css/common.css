@@ -1,0 +1,15 @@
+.content {
+    display: flex;
+}
+
+.left-menu {
+    width: 210px;
+}
+
+.wxapp_list {
+    display: flex;
+}
+
+.wxapp_list li {
+    width: 100px;
+}
