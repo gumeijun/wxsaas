@@ -185,6 +185,19 @@ function getModules(){
     return $data;
 }
 /**
+ * 获取模块完整路径
+ */
+function getAddonsFullPath($addons_name){
+    return ADDONS_PATH.$addons_name;
+}
+/**
+ * 获取模块配置信息
+ */
+function getAddonsConfigPath($addons_name){
+    $config = include ADDONS_PATH.$addons_name."/config.php";
+    return $config;
+}
+/**
 *  是否升级
 */
 function isUpgrade(){

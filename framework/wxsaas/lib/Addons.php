@@ -21,16 +21,4 @@ class Addons{
         }
         return $this->addons;
     }
-    /**
-     * 获取模块完整路径
-     */
-    public function getAddonsFullPath($addons_name){
-        return ADDONS_PATH.$addons_name;
-    }
-    /**
-     * 获取模块配置路径
-     */
-    public function getAddonsConfigPath($addons_name){
-        return ADDONS_PATH.$addons_name."/config.php";
-    }
 }
