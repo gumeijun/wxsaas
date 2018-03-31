@@ -4,6 +4,10 @@
         width: 80%;
         margin: 0 auto;
     }
+    .caret-wxapp .panel-heading{
+        display: flex;
+        justify-content: space-between;
+    }
     .wxapp-list{
         display:flex;
     }
@@ -14,15 +18,9 @@
     }
 </style>
 <div class="panel panel-default caret-wxapp">
-    <div class="panel-heading">选择小程序</div>
+    <div class="panel-heading">{$info.name}<div><a href="{:url('index')}">切换小程序</a></div></div>
     <div class="panel-body">
-        <ul class="wxapp-list">
-            {volist name='lists' id='item'}
-                <li>
-                    <a href="{:url('detail',['id'=>$item.id])}">{$item.name}</a>
-                </li>
-            {/volist}
-        </ul>
+        {include file="public/nav" /}
     </div>
 </div>
 {include file="public/footer" /}
