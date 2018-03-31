@@ -71,7 +71,7 @@ class Addons{
         $menus = $menu->where(['module'=>$moduleName])->select();
         foreach($menus as $item){
             $url = Request::instance()->host."/saas/public/addons.php/".$item->module."/web.".$item->ctroller."/".$item->action;
-            echo "<a href='$url'>$item->title</a>";
+            //echo "<a href='$url'>$item->title</a>";
         }
     }
 }

@@ -1,7 +1,9 @@
-<div class="panel panel-menu">
-    <ul class="list-group">
-        {volist name="submenu" id="vo"}
-        <li class="list-group-item "><a href="{:url($vo['url'])}">{$vo['name']}</a></li>
+<div class="leftList">
+    <ul>
+        {volist name="submenu" id="item"}
+        <li class="titleStyle">
+            <a href="{:url($item.url)}">{$item.name}</a>
+        </li>
         {/volist}
     </ul>
 </div>

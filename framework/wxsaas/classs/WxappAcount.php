@@ -4,10 +4,32 @@ use wxsaas\classs\Account;
 use wxapp\aes\WXBizDataCrypt;
 use think\Validate;
 use think\Request;
+use wxsaas\model\AccountWxapp;
+
 class WxappAcount extends Account{
     public function __construct(){
         $this->request = Request::instance();
     }
+
+    /**
+     * 创建小程序应用
+     * @param $data
+     * @param int $type
+     * @param int $endtime
+     */
+    public function create($data,$type = 2,$endtime = 0)
+    {
+        parent::createAccount($type, $endtime);
+        $wxapp = new AccountWxapp;
+        $wxapp->uniacid = $this->uniacid;
+        $wxapp->original = $data['original'];
+        $wxapp->key = $data['key'];
+        $wxapp->secret = $data['secret'];
+        $wxapp->name = $data['name'];
+        $wxapp->save();
+        return $wxapp->id;
+    }
+
     // 微信小程序用户登录 TODO 增加最后登录信息记录,如 ip
     public function login($app_id,$app_secret)
     {

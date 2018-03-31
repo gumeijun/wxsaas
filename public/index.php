@@ -26,6 +26,5 @@ define('EXTEND_PATH', WXSAAS_ROOT . 'framework/extend/');
 define('VENDOR_PATH', WXSAAS_ROOT . 'framework/vendor/');
 // 定义应用的运行时目录
 define('RUNTIME_PATH', WXSAAS_ROOT . 'data/runtime/');
-
 // 加载框架引导文件
-require __DIR__ . '/../framework/thinkphp/start.php';
+require WXSAAS_ROOT.'framework/thinkphp/start.php';

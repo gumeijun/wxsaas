@@ -11,17 +11,33 @@
 namespace wxsaas\controller;
 
 use think\Db;
+use think\Session;
 use wxsaas\lib\Addons;
+use think\Loader;
 class AdminBaseController extends BaseController
 {
-
+    protected $current_action;
     public function _initialize()
     {
         parent::_initialize();
+        if(!Session::get('admin_id')){
+            $this->redirect("index/index/index");
+        }
+        Loader::import("tp_auth/Auth", EXTEND_PATH);
+        $auth=new \Auth();
+        $this->current_action = request()->module().'/'.request()->controller().'/'.lcfirst(request()->action());
+
+        $result = $auth->check($this->current_action,1);
+//        if($result){
+//            echo "权限验证成功";
+//        }else{
+//            echo "没有权限";
+//        }
         $this->menu = $this->getMenu();
         foreach($this->menu as $key=>$item){
             $this->menu[$key]['url'] = $item['app']."/".$item['controller']."/".$item['action'];
         }
+
         $controller = $this->request->controller();
         if(!empty($controller)){
             $where['controller'] = $controller;

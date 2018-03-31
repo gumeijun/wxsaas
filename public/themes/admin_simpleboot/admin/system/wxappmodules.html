@@ -1,32 +1,6 @@
 {include file="public/header" /}
-<div class="collapse navbar-collapse">
-    <ul class="nav navbar-nav navbar-left">
-        {volist name="menu" id="item"}
-        <li><a href="{:url($item['url'])}">{$item['name']}</a></li>
-        {/volist}
-    </ul>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading">系统管理</div>
-    <div class="panel-body content">
-        {include file="public/nav" /}
-        <div class="right-content">
-            <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
-            </ul>
-            <table class="table">
-                <tr>
-                    <th>名称</th>
-                    <th>版本</th>
-                    <th>操作</th>
-                </tr>
-                <tr>
-                    <td>本意礼品</td>
-                    <td>1.0</td>
-                    <td>管理配置</td>
-                </tr>
-            </table>
-        </div>
-    </div>
+{include file="public/nav" /}
+<div class="rightMain">
+    你好
 </div>
 {include file="public/footer" /}
